@@ -6,6 +6,7 @@ The receiver must be called first, then the sender. The sender can be called mor
 ## Running under Windows
 1. clone this repository to your computer
 2. compile and run the example **Java** code
+3. compile and run the example **.NET C#** code
 
 ### 1. Cloning to your computer
 - install [GIT] on your computer
@@ -27,6 +28,22 @@ The subdirectory `java` contains prepared Windows batches:
 - `01-compile-run-udp6-sender.cmd` - compiles and runs the Java CLASS for UDP IPv6 sender
 - `02-clean.cmd` - removes all CLASS files
 
+### 3. The .NET C# client source code
+- use the `csc.exe` .NET C# compiler that is the part of Microsoft .NET Framework (part of OS)
+
+The subdirectory `csharp` contains prepared Windows batches:
+- `01-compile-run-tcp4-receiver.cmd` - compiles and runs the Windows executable for TCP IPv4 receiver
+- `01-compile-run-tcp4-sender.cmd` - compiles and runs the Windows executable for TCP IPv4 sender
+- `01-compile-run-tcp6-receiver.cmd` - compiles and runs the Windows executable for TCP IPv6 receiver 
+- `01-compile-run-tcp6-sender.cmd` - compiles and runs the Windows executable for TCP IPv6 sender
+- `01-compile-run-udp4-receiver.cmd` - compiles and runs the Windows executable for UDP IPv4 receiver
+- `01-compile-run-udp4-sender.cmd` - compiles and runs the Windows executable for UDP IPv4 sender
+- `01-compile-run-udp6-receiver.cmd` - compiles and runs the Windows executable for UDP IPv6 receiver
+- `01-compile-run-udp6-sender.cmd` - compiles and runs the Windows executable for UDP IPv6 sender
+- `02-clean.cmd` - removes the output directory with all Windows executables
+
+All `01-compile-run-*.cmd` batches contain the path definition to the `csc.exe` compiler
+
 ## Versions
 Now in September 2021 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM** and available **50GB free HDD space**
 
@@ -34,6 +51,7 @@ Now in September 2021 I have the computer with **Windows 10 Pro 64bit**, **12GB 
 | ------ | ------ | ------ |
 | [GIT] | 2.30.0.windows.2 | |
 | [Java JDK] | 15.0.2 | Java(TM) SE Runtime Environment (build 15.0.2+7-27) |
+| .NET C# compiler | 4.8.4084.0 | |
 
 ## To do (my plans to the future)
 
