@@ -26,7 +26,7 @@ echo "|".$msg."|".PHP_EOL;
 
 $msg_length = strlen($msg); 
 socket_sendto($socket, $msg, $msg_length, 0, RECEIVER_ADDRESS, RECEIVER_PORT);
-echo "- message ".$msg_length."B sent to ".RECEIVER_ADDRESS.":".RECEIVER_PORT.PHP_EOL;
+echo "- message ".$msg_length."B sent to [".RECEIVER_ADDRESS."]:".RECEIVER_PORT.PHP_EOL;
 
 socket_close($socket);
 echo "- socket closed".PHP_EOL;

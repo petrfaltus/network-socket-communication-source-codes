@@ -20,7 +20,7 @@ if ($bound === false)
 {
   exit("- socket_bind() failed: ".socket_strerror(socket_last_error($socket)).PHP_EOL); 
 }
-echo "- socket bound on ".RECEIVER_ADDRESS.":".RECEIVER_PORT.PHP_EOL;
+echo "- socket bound on [".RECEIVER_ADDRESS."]:".RECEIVER_PORT.PHP_EOL;
 
 $stop = false;
 while ($stop == false)
@@ -34,7 +34,7 @@ while ($stop == false)
   {
     exit("- socket_recvfrom() failed: ".socket_strerror(socket_last_error($socket)).PHP_EOL);
   }
-  echo "- message ".$received_length."B received from ".$peer_address.":".$peer_port.PHP_EOL;
+  echo "- message ".$received_length."B received from [".$peer_address."]:".$peer_port.PHP_EOL;
   echo "|".$msg."|".PHP_EOL;
       
   if ($msg == "stop")
