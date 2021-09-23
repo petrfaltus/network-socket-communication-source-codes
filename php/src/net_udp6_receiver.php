@@ -2,7 +2,7 @@
 
 set_time_limit(0);
 
-const RECEIVER_ADDRESS = "::1";
+const RECEIVER_ADDRESS = "::0";
 const RECEIVER_PORT = 10000;
 const BUFFER_SIZE = 4096;
 
