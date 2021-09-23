@@ -35,7 +35,7 @@ namespace NetTCP6receiver
                     Console.WriteLine("- socket accepted request");
 
                     IPEndPoint peer = (IPEndPoint)msgsock.RemoteEndPoint;
-                    Console.WriteLine("- peer connect from {0}:{1}", peer.Address, peer.Port);
+                    Console.WriteLine("- peer connect from [{0}]:{1}", peer.Address, peer.Port);
 
                     byte[] buffer = new byte[BUFFER_SIZE];
                     int received_length = msgsock.Receive(buffer);

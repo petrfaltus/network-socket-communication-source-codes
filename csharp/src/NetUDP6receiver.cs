@@ -34,7 +34,7 @@ namespace NetUDP6receiver
                     int received_length = socket.ReceiveFrom(buffer, ref peer_ref);
                     string msg = Encoding.ASCII.GetString(buffer, 0, received_length);
                     peer = (IPEndPoint)peer_ref;
-                    Console.WriteLine("- message {0}B of {1}B received from {2}:{3}", msg.Length, received_length, peer.Address, peer.Port);
+                    Console.WriteLine("- message {0}B of {1}B received from [{2}]:{3}", msg.Length, received_length, peer.Address, peer.Port);
                     Console.WriteLine("|{0}|", msg);
 
                     if (msg.Equals("stop"))
