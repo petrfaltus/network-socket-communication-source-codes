@@ -10,7 +10,6 @@ import java.net.InetAddress;
 import static java.lang.System.out;
 
 public class net_udp_receiver {
-    private static final String RECEIVER_ADDRESS = "127.0.0.1";
     private static final int RECEIVER_PORT = 10000;
     private static final int BUFFER_SIZE = 4096;
 
@@ -18,10 +17,8 @@ public class net_udp_receiver {
         out.println("UDP IPv4 datagram socket receiver");
 
         try {
-            InetAddress receiver_address = InetAddress.getByName(RECEIVER_ADDRESS);
-
-            DatagramSocket socket = new DatagramSocket(RECEIVER_PORT, receiver_address);
-            out.println("- socket created and bound on " + RECEIVER_ADDRESS + ":" + RECEIVER_PORT);
+            DatagramSocket socket = new DatagramSocket(RECEIVER_PORT);
+            out.println("- socket created and bound on port " + RECEIVER_PORT);
 
             byte[] buffer = new byte[BUFFER_SIZE];
 
