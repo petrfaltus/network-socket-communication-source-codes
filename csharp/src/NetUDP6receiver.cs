@@ -7,7 +7,6 @@ namespace NetUDP6receiver
 {
     public class Program
     {
-        private static readonly string RECEIVER_ADDRESS = "::1";
         private static readonly int RECEIVER_PORT = 10000;
         private static readonly int BUFFER_SIZE = 4096;
 
@@ -20,11 +19,10 @@ namespace NetUDP6receiver
                 Socket socket = new Socket(AddressFamily.InterNetworkV6, SocketType.Dgram, ProtocolType.Udp);
                 Console.WriteLine("- socket created");
 
-                IPAddress receiver_address = IPAddress.Parse(RECEIVER_ADDRESS);
-                IPEndPoint receiver = new IPEndPoint(receiver_address, RECEIVER_PORT);
+                IPEndPoint receiver = new IPEndPoint(IPAddress.IPv6Any, RECEIVER_PORT);
 
                 socket.Bind(receiver);
-                Console.WriteLine("- socket bound on {0}:{1}", receiver_address, RECEIVER_PORT);
+                Console.WriteLine("- socket bound on port {0}", RECEIVER_PORT);
 
                 byte[] buffer = new byte[BUFFER_SIZE];
                 IPEndPoint peer = new IPEndPoint(IPAddress.IPv6Any, 0);
