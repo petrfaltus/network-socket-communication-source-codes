@@ -12,7 +12,6 @@ import java.net.Socket;
 import static java.lang.System.out;
 
 public class net_tcp_receiver {
-    private static final String RECEIVER_ADDRESS = "127.0.0.1";
     private static final int RECEIVER_PORT = 10000;
     private static final int RECEIVED_MESSAGES_MAX = 10;
 
@@ -20,10 +19,8 @@ public class net_tcp_receiver {
         out.println("TCP IPv4 stream socket receiver");
 
         try {
-            InetAddress receiver_address = InetAddress.getByName(RECEIVER_ADDRESS);
-
-            ServerSocket socket = new ServerSocket(RECEIVER_PORT, RECEIVED_MESSAGES_MAX, receiver_address);
-            out.println("- socket created, bound on " + RECEIVER_ADDRESS + ":" + RECEIVER_PORT + " and is listening for max " + RECEIVED_MESSAGES_MAX + " messages");
+            ServerSocket socket = new ServerSocket(RECEIVER_PORT, RECEIVED_MESSAGES_MAX);
+            out.println("- socket created, bound on port " + RECEIVER_PORT + " and is listening for max " + RECEIVED_MESSAGES_MAX + " messages");
 
             boolean stop = false;
             while (stop == false) {

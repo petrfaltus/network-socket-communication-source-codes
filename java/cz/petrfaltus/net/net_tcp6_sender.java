@@ -22,7 +22,7 @@ public class net_tcp6_sender {
 
         try {
             Socket socket = new Socket(RECEIVER_ADDRESS, RECEIVER_PORT);
-            out.println("- socket created for sending to " + RECEIVER_ADDRESS + ":" + RECEIVER_PORT);
+            out.println("- socket created for sending to [" + RECEIVER_ADDRESS + "]:" + RECEIVER_PORT);
 
             PrintStream output_stream = new PrintStream(socket.getOutputStream());
 

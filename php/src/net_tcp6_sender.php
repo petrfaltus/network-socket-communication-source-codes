@@ -19,7 +19,7 @@ if ($result === false)
 {
   exit("- socket_connect() failed: ".socket_strerror(socket_last_error($socket)).PHP_EOL);
 }
-echo "- connected to ".RECEIVER_ADDRESS.":".RECEIVER_PORT.PHP_EOL;
+echo "- connected to [".RECEIVER_ADDRESS."]:".RECEIVER_PORT.PHP_EOL;
 
 if (isset($argv[1]))
 {

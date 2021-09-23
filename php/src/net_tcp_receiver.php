@@ -2,7 +2,7 @@
 
 set_time_limit(0);
 
-const RECEIVER_ADDRESS = "127.0.0.1";
+const RECEIVER_ADDRESS = "0.0.0.0";
 const RECEIVER_PORT = 10000;
 const RECEIVED_MESSAGES_MAX = 10;
 const BUFFER_SIZE = 4096;

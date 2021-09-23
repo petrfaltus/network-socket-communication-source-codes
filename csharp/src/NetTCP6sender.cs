@@ -23,7 +23,7 @@ namespace NetTCP6sender
                 IPEndPoint receiver = new IPEndPoint(receiver_address, RECEIVER_PORT);
 
                 socket.Connect(receiver);
-                Console.WriteLine("- connected to {0}:{1}", receiver_address, RECEIVER_PORT);
+                Console.WriteLine("- connected to [{0}]:{1}", receiver_address, RECEIVER_PORT);
 
                 string msg;
                 if (args.Length > 0)

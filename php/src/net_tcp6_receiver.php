@@ -2,7 +2,7 @@
 
 set_time_limit(0);
 
-const RECEIVER_ADDRESS = "::1";
+const RECEIVER_ADDRESS = "::0";
 const RECEIVER_PORT = 10000;
 const RECEIVED_MESSAGES_MAX = 10;
 const BUFFER_SIZE = 4096;
@@ -21,7 +21,7 @@ if ($bound === false)
 {
   exit("- socket_bind() failed: ".socket_strerror(socket_last_error($socket)).PHP_EOL); 
 }
-echo "- socket bound on ".RECEIVER_ADDRESS.":".RECEIVER_PORT.PHP_EOL;
+echo "- socket bound on [".RECEIVER_ADDRESS."]:".RECEIVER_PORT.PHP_EOL;
 
 $listening = @socket_listen($socket, RECEIVED_MESSAGES_MAX);
 if ($listening === false)
@@ -48,7 +48,7 @@ while ($stop == false)
   {
     exit("- socket_getpeername() failed: ".socket_strerror(socket_last_error($msgsock)).PHP_EOL);
   }
-  echo "- peer connect from ".$peer_address.":".$peer_port.PHP_EOL;
+  echo "- peer connect from [".$peer_address."]:".$peer_port.PHP_EOL;
 
   $msg = "";
 

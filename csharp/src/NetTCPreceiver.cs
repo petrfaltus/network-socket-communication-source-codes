@@ -7,7 +7,6 @@ namespace NetTCPreceiver
 {
     public class Program
     {
-        private static readonly string RECEIVER_ADDRESS = "127.0.0.1";
         private static readonly int RECEIVER_PORT = 10000;
         private static readonly int RECEIVED_MESSAGES_MAX = 10;
         private static readonly int BUFFER_SIZE = 4096;
@@ -21,11 +20,10 @@ namespace NetTCPreceiver
                 Socket socket = new Socket(AddressFamily.InterNetwork, SocketType.Stream, ProtocolType.Tcp);
                 Console.WriteLine("- socket created");
 
-                IPAddress receiver_address = IPAddress.Parse(RECEIVER_ADDRESS);
-                IPEndPoint receiver = new IPEndPoint(receiver_address, RECEIVER_PORT);
+                IPEndPoint receiver = new IPEndPoint(IPAddress.Any, RECEIVER_PORT);
 
                 socket.Bind(receiver);
-                Console.WriteLine("- socket bound on {0}:{1}", receiver_address, RECEIVER_PORT);
+                Console.WriteLine("- socket bound on port {0}", RECEIVER_PORT);
 
                 socket.Listen(RECEIVED_MESSAGES_MAX);
                 Console.WriteLine("- socket is listening for max {0} messages", RECEIVED_MESSAGES_MAX);
