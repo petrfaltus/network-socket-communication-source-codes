@@ -41,7 +41,7 @@ public class net_udp6_sender {
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length, receiver_address, RECEIVER_PORT);
 
             socket.send(packet);
-            out.println("- message " + buffer.length + "B of " + msg.length() + "B sent to " + RECEIVER_ADDRESS + ":" + RECEIVER_PORT);
+            out.println("- message " + buffer.length + "B of " + msg.length() + "B sent to [" + RECEIVER_ADDRESS + "]:" + RECEIVER_PORT);
 
             socket.close();
             out.println("- socket closed");
