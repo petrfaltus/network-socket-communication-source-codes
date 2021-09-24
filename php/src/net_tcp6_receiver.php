@@ -48,7 +48,16 @@ while ($stop == false)
   {
     exit("- socket_getpeername() failed: ".socket_strerror(socket_last_error($msgsock)).PHP_EOL);
   }
-  echo "- peer connect from [".$peer_address."]:".$peer_port.PHP_EOL;
+
+  $local_address = "";
+  $local_port = 0;
+
+  $local = @socket_getsockname($msgsock, $local_address, $local_port);
+  if ($local === false)
+  {
+    exit("- socket_getsockname() failed: ".socket_strerror(socket_last_error($msgsock)).PHP_EOL);
+  }
+  echo "- peer connect from [".$peer_address."]:".$peer_port." on [".$local_address."]:".$local_port.PHP_EOL;
 
   $msg = "";
 
