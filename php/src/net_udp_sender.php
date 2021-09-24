@@ -26,7 +26,16 @@ echo "|".$msg."|".PHP_EOL;
 
 $msg_length = strlen($msg); 
 socket_sendto($socket, $msg, $msg_length, 0, RECEIVER_ADDRESS, RECEIVER_PORT);
-echo "- message ".$msg_length."B sent to ".RECEIVER_ADDRESS.":".RECEIVER_PORT.PHP_EOL;
+
+$local_address = "";
+$local_port = 0;
+
+$local = @socket_getsockname($socket, $local_address, $local_port);
+if ($local === false)
+{
+  exit("- socket_getsockname() failed: ".socket_strerror(socket_last_error($msgsock)).PHP_EOL);
+}
+echo "- message ".$msg_length."B sent to ".RECEIVER_ADDRESS.":".RECEIVER_PORT." on port ".$local_port.PHP_EOL;
 
 socket_close($socket);
 echo "- socket closed".PHP_EOL;

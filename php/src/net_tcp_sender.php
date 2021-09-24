@@ -21,6 +21,25 @@ if ($result === false)
 }
 echo "- connected to ".RECEIVER_ADDRESS.":".RECEIVER_PORT.PHP_EOL;
 
+$peer_address = "";
+$peer_port = 0;
+
+$peer = @socket_getpeername($socket, $peer_address, $peer_port);
+if ($peer === false)
+{
+  exit("- socket_getpeername() failed: ".socket_strerror(socket_last_error($msgsock)).PHP_EOL);
+}
+
+$local_address = "";
+$local_port = 0;
+
+$local = @socket_getsockname($socket, $local_address, $local_port);
+if ($local === false)
+{
+  exit("- socket_getsockname() failed: ".socket_strerror(socket_last_error($msgsock)).PHP_EOL);
+}
+echo "- for ".$peer_address.":".$peer_port." bound on ".$local_address.":".$local_port.PHP_EOL;
+
 if (isset($argv[1]))
 {
   $msg = $argv[1]; // message is the first parameter, for example "stop" to stop the receiver
