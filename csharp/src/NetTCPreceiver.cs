@@ -35,7 +35,8 @@ namespace NetTCPreceiver
                     Console.WriteLine("- socket accepted request");
 
                     IPEndPoint peer = (IPEndPoint)msgsock.RemoteEndPoint;
-                    Console.WriteLine("- peer connect from {0}:{1}", peer.Address, peer.Port);
+                    IPEndPoint local = (IPEndPoint)msgsock.LocalEndPoint;
+                    Console.WriteLine("- peer connect from {0}:{1} on {2}:{3}", peer.Address, peer.Port, local.Address, local.Port);
 
                     byte[] buffer = new byte[BUFFER_SIZE];
                     int received_length = msgsock.Receive(buffer);
