@@ -28,7 +28,8 @@ public class net_tcp6_receiver {
                 out.println("- socket accepted request");
 
                 InetAddress peer = msgsock.getInetAddress();
-                out.println("- peer connect from [" + peer.getHostAddress() + "]:" + msgsock.getPort());
+                InetAddress local = msgsock.getLocalAddress();
+                out.println("- peer connect from [" + peer.getHostAddress() + "]:" + msgsock.getPort() + " on [" + local.getHostAddress() + "]:" + msgsock.getLocalPort());
 
                 InputStreamReader isr = new InputStreamReader(msgsock.getInputStream());
                 BufferedReader br = new BufferedReader(isr);

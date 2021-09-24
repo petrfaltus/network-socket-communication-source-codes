@@ -25,6 +25,10 @@ namespace NetTCP6sender
                 socket.Connect(receiver);
                 Console.WriteLine("- connected to [{0}]:{1}", receiver_address, RECEIVER_PORT);
 
+                IPEndPoint peer = (IPEndPoint)socket.RemoteEndPoint;
+                IPEndPoint local = (IPEndPoint)socket.LocalEndPoint;
+                Console.WriteLine("- for [{0}]:{1} bound on [{2}]:{3}", peer.Address, peer.Port, local.Address, local.Port);
+
                 string msg;
                 if (args.Length > 0)
                     msg = args[0]; // message is the first parameter, for example "stop" to stop the receiver

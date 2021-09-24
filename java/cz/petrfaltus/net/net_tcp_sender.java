@@ -4,6 +4,7 @@ package cz.petrfaltus.net;
 import java.io.IOException;
 import java.io.PrintStream;
 
+import java.net.InetAddress;
 import java.net.Socket;
 
 import java.text.DateFormat;
@@ -23,6 +24,10 @@ public class net_tcp_sender {
         try {
             Socket socket = new Socket(RECEIVER_ADDRESS, RECEIVER_PORT);
             out.println("- socket created for sending to " + RECEIVER_ADDRESS + ":" + RECEIVER_PORT);
+
+            InetAddress peer = socket.getInetAddress();
+            InetAddress local = socket.getLocalAddress();
+            out.println("- for " + peer.getHostAddress() + ":" + socket.getPort() + " bound on " + local.getHostAddress() + ":" + socket.getLocalPort());
 
             PrintStream output_stream = new PrintStream(socket.getOutputStream());
 

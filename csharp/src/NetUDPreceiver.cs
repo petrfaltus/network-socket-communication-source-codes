@@ -34,7 +34,8 @@ namespace NetUDPreceiver
                     int received_length = socket.ReceiveFrom(buffer, ref peer_ref);
                     string msg = Encoding.ASCII.GetString(buffer, 0, received_length);
                     peer = (IPEndPoint)peer_ref;
-                    Console.WriteLine("- message {0}B of {1}B received from {2}:{3}", msg.Length, received_length, peer.Address, peer.Port);
+                    IPEndPoint local = (IPEndPoint)socket.LocalEndPoint;
+                    Console.WriteLine("- message {0}B of {1}B received from {2}:{3} on port {4}", msg.Length, received_length, peer.Address, peer.Port, local.Port);
                     Console.WriteLine("|{0}|", msg);
 
                     if (msg.Equals("stop"))

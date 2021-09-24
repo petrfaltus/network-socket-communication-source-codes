@@ -40,6 +40,9 @@ public class net_udp6_sender {
             InetAddress receiver_address = InetAddress.getByName(RECEIVER_ADDRESS);
             DatagramPacket packet = new DatagramPacket(buffer, buffer.length, receiver_address, RECEIVER_PORT);
 
+            InetAddress peer = packet.getAddress();
+            out.println("- for [" + peer.getHostAddress() + "]:" + packet.getPort() + " bound on port " + socket.getLocalPort());
+
             socket.send(packet);
             out.println("- message " + buffer.length + "B of " + msg.length() + "B sent to [" + RECEIVER_ADDRESS + "]:" + RECEIVER_PORT);
 

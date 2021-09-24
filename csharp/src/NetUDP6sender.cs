@@ -34,7 +34,8 @@ namespace NetUDP6sender
                 IPEndPoint receiver = new IPEndPoint(receiver_address, RECEIVER_PORT);
 
                 int sent_length = socket.SendTo(buffer, receiver);
-                Console.WriteLine("- message {0}B of {1}B sent to [{2}]:{3}", sent_length, msg.Length, receiver_address, RECEIVER_PORT);
+                IPEndPoint local = (IPEndPoint)socket.LocalEndPoint;
+                Console.WriteLine("- message {0}B of {1}B sent to [{2}]:{3} on port {4}", sent_length, msg.Length, receiver_address, RECEIVER_PORT, local.Port);
 
                 socket.Close();
                 Console.WriteLine("- socket closed");

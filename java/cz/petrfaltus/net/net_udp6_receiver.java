@@ -29,7 +29,7 @@ public class net_udp6_receiver {
                 socket.receive(packet);
                 String msg = new String(packet.getData(), 0, packet.getLength());
                 InetAddress peer = packet.getAddress();
-                out.println("- message " + msg.length() + "B of " + packet.getLength() + "B received from [" + peer.getHostAddress() + "]:" + packet.getPort());
+                out.println("- message " + msg.length() + "B of " + packet.getLength() + "B received from [" + peer.getHostAddress() + "]:" + packet.getPort() + " on port " + socket.getLocalPort());
                 out.println("|" + msg + "|");
 
                 if (msg.equals("stop")) {

@@ -34,7 +34,16 @@ while ($stop == false)
   {
     exit("- socket_recvfrom() failed: ".socket_strerror(socket_last_error($socket)).PHP_EOL);
   }
-  echo "- message ".$received_length."B received from ".$peer_address.":".$peer_port.PHP_EOL;
+
+  $local_address = "";
+  $local_port = 0;
+
+  $local = @socket_getsockname($socket, $local_address, $local_port);
+  if ($local === false)
+  {
+    exit("- socket_getsockname() failed: ".socket_strerror(socket_last_error($msgsock)).PHP_EOL);
+  }
+  echo "- message ".$received_length."B received from ".$peer_address.":".$peer_port." on port ".$local_port.PHP_EOL;
   echo "|".$msg."|".PHP_EOL;
       
   if ($msg == "stop")
