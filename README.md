@@ -8,6 +8,7 @@ The receiver must be called first, then the sender. The sender can be called mor
 2. compile and run the example **Java** code
 3. compile and run the example **.NET C#** code
 4. run the example **PHP** code
+5. run the example **Python** code
 
 ### 1. Cloning to your computer
 - install [GIT] on your computer
@@ -59,6 +60,20 @@ The subdirectory `php` contains prepared Windows batch:
 - `01-run-udp6-receiver.cmd` - runs the code through the PHP interpreter for UDP IPv6 receiver
 - `01-run-udp6-sender.cmd` - runs the code through the PHP interpreter for UDP IPv6 sender
 
+### 5. The Python client source code
+- install [Python] on your computer
+- set the OS environment `%PYTHON_HOME%` variable (must exist `"%PYTHON_HOME%\python.exe"`)
+
+The subdirectory `python` contains prepared Windows batch:
+- `01-run-tcp4-receiver.cmd` - runs the code through the Python interpreter for TCP IPv4 receiver
+- `01-run-tcp4-sender.cmd` - runs the code through the Python interpreter for TCP IPv4 sender
+- `01-run-tcp6-receiver.cmd` - runs the code through the Python interpreter for TCP IPv6 receiver 
+- `01-run-tcp6-sender.cmd` - runs the code through the Python interpreter for TCP IPv6 sender
+- `01-run-udp4-receiver.cmd` - runs the code through the Python interpreter for UDP IPv4 receiver
+- `01-run-udp4-sender.cmd` - runs the code through the Python interpreter for UDP IPv4 sender
+- `01-run-udp6-receiver.cmd` - runs the code through the Python interpreter for UDP IPv6 receiver
+- `01-run-udp6-sender.cmd` - runs the code through the Python interpreter for UDP IPv6 sender
+
 ## Versions
 Now in September 2021 I have the computer with **Windows 10 Pro 64bit**, **12GB RAM** and available **50GB free HDD space**
 
@@ -68,9 +83,11 @@ Now in September 2021 I have the computer with **Windows 10 Pro 64bit**, **12GB 
 | [Java JDK] | 15.0.2 | Java(TM) SE Runtime Environment (build 15.0.2+7-27) |
 | .NET C# compiler | 4.8.4084.0 | |
 | [PHP] | 7.4.15 | 7.4.15-nts-Win32-vc15-x64 |
+| [Python] | 3.4.3 | |
 
 ## To do (my plans to the future)
 
 [GIT]: <https://git-scm.com/>
 [Java JDK]: <https://www.oracle.com/java/technologies/javase-downloads.html>
 [PHP]: <https://www.php.net/>
+[Python]: <https://www.python.org/>
